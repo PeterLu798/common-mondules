@@ -1,0 +1,13 @@
+﻿﻿server.port: 5701
+spring: 
+  application.name: springboot-consul-agent
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8888
+health:
+  config:
+    enabled: true       #true表示定时同步
+    time-to-live: 60000 #同步间隔，默认5分钟
+      

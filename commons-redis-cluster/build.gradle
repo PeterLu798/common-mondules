@@ -1,0 +1,50 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+jar {
+	baseName = 'commons-redis'
+	version = '0.0.1-SNAPSHOT'
+}
+
+version = '0.0.1-SNAPSHOT'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile('redis.clients:jedis:2.9.0')
+	compile('org.springframework.boot:spring-boot-starter-web:1.5.4.RELEASE')
+	//compileOnly('org.projectlombok:lombok')
+	//testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+uploadArchives {  
+    repositories {  
+        mavenDeployer { 
+        	repository(url: "http://localhost:8081/repository/maven-snapshots/") {  
+        		authentication(userName: "admin", password: "admin123")  
+        	}
+        	pom.project {  
+        		name project.name  
+        		packaging 'jar'
+        	}
+        }
+        
+    }
+}
+group="com.yi23.common"
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'

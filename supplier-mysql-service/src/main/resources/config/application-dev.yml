@@ -1,0 +1,51 @@
+spring: 
+  jackson: 
+       date-format: yyyy-MM-dd HH:mm:ss
+       time-zone: GMT+8
+  boot: 
+       admin: 
+           url: http://localhost:8080
+           client: 
+                  prefer-ip: true
+  redis: 
+    cluster: 
+      maxtotal: 3000 #最大的活动连接
+      maxidle: 100 #最大的空闲连接
+      maxwait: 1500 #最大的等待时间
+      expiretime: 60000 #过期时间
+      defaulttimeout: 1500 #默认超时时间
+      testonborrow: true #brrow时提前进行alidate操作
+      testonreturn: true #return时提前进行alidate操作
+      nodes: 
+        - 192.168.20.118:7001
+        - 192.168.20.118:7002
+        - 192.168.20.118:7003
+        - 192.168.20.118:7004
+        - 192.168.20.118:7006
+        - 192.168.20.118:7006
+yi23: 
+  supplier: 
+    dataSource: 
+      clusters: 
+        - 
+            id: supplier-data-mysql-service
+            clustertype: READWRITE
+            strategy: RANDOM
+            retrytime: 200
+            minimumConnectionCount: 2
+            maximumConnectionCount: 3
+            trace: true
+            prototypeCount: 10
+            houseKeepingTestSql: select 1 from dual
+            simultaneousBuildThrottle: 100
+            maximumActiveTime: 600000
+            nodes: 
+               - 
+                  id: yi23-supplier-data-mysql-service-db-cluster-one
+                  driver: com.mysql.jdbc.Driver
+                  url: "jdbc:mysql://127.0.0.1:3306/test_db_1?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true"
+                  user: root 
+                  password: 
+                  trailnumber: 
+mybatis: 
+  configLocation: classpath:mybatis/mybatis-configuration.xml

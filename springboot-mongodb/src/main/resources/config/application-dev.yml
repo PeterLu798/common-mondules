@@ -1,0 +1,7 @@
+spring: 
+  data: 
+       mongodb: 
+           uri: mongodb://192.168.9.135:27017/my-spring-boot-test
+  jackson: 
+       date-format: yyyy-MM-dd HH:mm:ss
+       time-zone: GMT+8

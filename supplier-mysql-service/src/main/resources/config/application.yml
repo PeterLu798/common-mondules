@@ -1,0 +1,5 @@
+﻿server.port: 5702
+spring:  
+  profiles: 
+    active: dev
+  application.name: supplier-mysql-service

@@ -1,0 +1,1 @@
+include 'commons-rdbms', 'commons-redis-cluster','springboot-consul-agent','springboot-mongodb','supplier-mysql-service','spring-cloud-config-server'
