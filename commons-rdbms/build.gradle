@@ -38,7 +38,7 @@ test {
 uploadArchives {  
     repositories {  
         mavenDeployer { 
-        	repository(url: "http://localhost:8081/repository/maven-snapshots/") {  
+        	repository(url: "http://10.0.0.209:8081/repository/maven-snapshots/") {
         		authentication(userName: "admin", password: "admin123")  
         	}
         	pom.project {  

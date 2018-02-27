@@ -21,7 +21,7 @@ sourceCompatibility = 1.8
 repositories {
 
 	mavenLocal()
-	maven { url "http://localhost:8081/repository/maven-public/" }
+	maven { url "http://10.0.0.209:8081/repository/maven-public/" }
 	mavenCentral()
 }
 
