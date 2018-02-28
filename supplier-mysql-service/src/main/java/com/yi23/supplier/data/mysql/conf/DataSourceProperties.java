@@ -22,7 +22,7 @@ import lombok.Setter;
 @ConfigurationProperties(prefix = DataSourceProperties.DATASOURCE_PREFIX)
 public class DataSourceProperties {
 	
-	public static final String DATASOURCE_PREFIX = "yi23.supplier.dataSource";
+	public static final String DATASOURCE_PREFIX = "yi23.dataSource";
 	
 	private List<Cluster> clusters;
 	

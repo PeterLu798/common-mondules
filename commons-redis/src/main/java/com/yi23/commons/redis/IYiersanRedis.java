@@ -11,7 +11,12 @@ import java.util.Set;
 
 public abstract interface IYiersanRedis extends Serializable {
 
-    public abstract Long msetnx(String[] paramArrayOfString);
+    /**
+     *
+     * @param keysvalues
+     * @return
+     */
+    public abstract Long msetnx(String... keysvalues);
 
     public abstract Long move(String paramString, int paramInt);
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class RDBMSConfigHelper {
 	private List<Cluster> clusters;
-	private static RDBMSConfigHelper rdbmsConfig = null;
+	private static volatile RDBMSConfigHelper rdbmsConfig = null;
 
 	private RDBMSConfigHelper() {
 	}
@@ -13,7 +13,7 @@ public class RDBMSConfigHelper {
 		this.clusters = clusters;
 	}
 
-	public static RDBMSConfigHelper help(List<Cluster> clusters) {
+	public static  RDBMSConfigHelper help(List<Cluster> clusters) {
 		if (rdbmsConfig == null) {
 			synchronized (RDBMSConfigHelper.class) {
 				if (rdbmsConfig == null) {
