@@ -1,8 +1,8 @@
 package com.yi23.commons.redis.cluster.jedis;
 
-import com.sun.tools.javac.util.Assert;
 import com.yi23.commons.redis.IYiersanRedis;
 import com.yi23.commons.redis.YiersanRedis;
+import com.yi23.commons.redis.exception.RedisRuntimeException;
 import redis.clients.jedis.JedisCluster;
 
 public class YiRedisCluster implements YiersanRedis {
@@ -12,8 +12,10 @@ public class YiRedisCluster implements YiersanRedis {
 
     @Override
     public IYiersanRedis getIYiersanRedis() {
-        Assert.checkNonNull(this.jedisCluster, "jedisCluster is not allowed to be null !");
-        return constructShangpinRedis(this.jedisCluster);
+        if(null == jedisCluster){
+            throw new RedisRuntimeException("jedisCluster is not allowed to be null !");
+        }
+        return constructShangpinRedis(jedisCluster);
     }
 
     private IYiersanRedis constructShangpinRedis(JedisCluster jedisCluster) {

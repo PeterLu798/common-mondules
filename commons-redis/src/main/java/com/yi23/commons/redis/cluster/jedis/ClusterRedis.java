@@ -9,6 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * <p>Description: redis API </p>
+ * <p>Company www.yi23.net </p>
+ * <p>author lubaijiang </p>
+ * <p>date 2018/3/1下午6:49 </P>
+ */
 public class ClusterRedis implements IYiersanRedis {
 
     private static final Logger log = LoggerFactory.getLogger(ClusterRedis.class);

@@ -14,6 +14,12 @@ import redis.clients.jedis.JedisCluster;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * <p>Description: redis集群工厂类 </p>
+ * <p>Company www.yi23.net </p>
+ * <p>author lubaijiang </p>
+ * <p>date 2018/3/1下午5:49 </P>
+ */
 public class YiRedisClusterFactory implements Serializable {
 
     private static final Logger log = LoggerFactory.getLogger(YiRedisClusterFactory.class);

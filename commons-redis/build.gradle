@@ -9,7 +9,7 @@ jar {
 	version = '0.0.1-SNAPSHOT'
 }
 
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 
 jar {
     manifest {
@@ -33,7 +33,7 @@ test {
 uploadArchives {  
     repositories {  
         mavenDeployer { 
-        	repository(url: "http://localhost:8081/repository/maven-snapshots/") {  
+        	repository(url: "http://10.0.0.141:8081/repository/maven-snapshots/") {
         		authentication(userName: "admin", password: "admin123")  
         	}
         	pom.project {  

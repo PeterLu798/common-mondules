@@ -1,5 +1,6 @@
 package com.yi23.supplier.data.mysql;
 
+import com.yi23.commons.redis.IYiersanRedis;
 import com.yi23.supplier.data.mysql.supplier.mapper.SupplierMapper;
 import com.yi23.supplier.data.mysql.supplier.po.Supplier;
 import org.junit.Test;
@@ -34,6 +35,13 @@ public class SpringbootMysqlServiceApplicationTests {
 	public void selectById(){
 		Supplier supplier = mapper.selectByPrimaryKey(1L);
 		System.out.println("name============"+supplier.getSupplierName()); 
+	}
+
+	@Autowired
+	IYiersanRedis redis;
+
+	public void test(){
+//		redis.hmset()
 	}
 
 }

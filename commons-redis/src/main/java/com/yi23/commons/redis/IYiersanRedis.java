@@ -6,7 +6,12 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
+/**
+ * <p>Description: redis API </p>
+ * <p>Company www.yi23.net </p>
+ * <p>author lubaijiang </p>
+ * <p>date 2018/3/1下午5:49 </P>
+ */
 public abstract interface IYiersanRedis extends Serializable {
 
     /**
