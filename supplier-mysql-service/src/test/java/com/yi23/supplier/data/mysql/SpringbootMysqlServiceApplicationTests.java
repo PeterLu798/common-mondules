@@ -40,8 +40,15 @@ public class SpringbootMysqlServiceApplicationTests {
 	@Autowired
 	IYiersanRedis redis;
 
+	@Test
 	public void test(){
-//		redis.hmset()
+		try {
+			
+			redis.set("namekkkkkkkkkkkkkkkk", "uusjvabABVAVBAHBVOAB");
+			System.out.println("namekkkkkkkkkkkkkkkk=============="+redis.get("namekkkkkkkkkkkkkkkk"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

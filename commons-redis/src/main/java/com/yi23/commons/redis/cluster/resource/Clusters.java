@@ -36,6 +36,8 @@ public class Clusters {
      * return时提前进行alidate操作
      */
     private boolean testonreturn;
+    
+    private String password;
     /**
      * 集群节点
      */
@@ -112,4 +114,12 @@ public class Clusters {
     public void setExpiretime(int expiretime) {
         this.expiretime = expiretime;
     }
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }

@@ -63,7 +63,7 @@ public class YiRedisClusterFactory implements Serializable {
             for(Clusters cluster : clusters){
                 Map<String, YiersanRedis> map = new HashMap<String, YiersanRedis>();
                 for(Node node : cluster.getNodes()){
-                    map.put(node.getId(),transferClusterInfoToShangpinRedis(cluster, node));
+                    map.put(node.getId(),transfer(cluster, node));
                 }
                 applicationRedisMap.put(cluster.getId(), map);
             }
@@ -71,11 +71,16 @@ public class YiRedisClusterFactory implements Serializable {
         }
     }
 
-    private YiersanRedis transferClusterInfoToShangpinRedis(Clusters clusterInfo, Node node) {
+    private YiersanRedis transfer(Clusters clusterInfo, Node node) {
         YiRedisCluster src = new YiRedisCluster();
         Set<HostAndPort> nodes = getNodes(node);
 		GenericObjectPoolConfig poolConfig = getGenericObjectPoolConfig(clusterInfo);
-        JedisCluster jc = new JedisCluster(nodes , poolConfig);
+		JedisCluster jc = null;
+		if(null != clusterInfo.getPassword() && !"".equals(clusterInfo.getPassword())){
+			jc = new JedisCluster(nodes, clusterInfo.getDefaulttimeout().intValue(), clusterInfo.getMaxwait().intValue(), 0, clusterInfo.getPassword(), poolConfig);
+		}else{
+			jc = new JedisCluster(nodes, poolConfig);
+		}
         src.setJedisCluster(jc);
         src.setExpireTime(clusterInfo.getExpiretime());
         return src;
